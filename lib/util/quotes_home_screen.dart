@@ -58,10 +58,10 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
         Navigator.pushNamed(context, 'motivation',arguments: l1);
       },
       child: Container(
-          margin: EdgeInsets.all(10),
+          margin: EdgeInsets.all(5),
           width: 100,
           height: 100,
-          color: c1.color,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: c1.color),
           child: Padding(
             padding: EdgeInsets.all(10),
             child: Column(

@@ -22,7 +22,7 @@ class _MotivationScreenState extends State<MotivationScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Quotes"),
+          title: Text(""),
         ),
         body: ListView.builder(
           itemCount: l1.length,
@@ -30,12 +30,11 @@ class _MotivationScreenState extends State<MotivationScreen> {
             return Container(
               height: 100,
               margin:EdgeInsets.all(10),
-              color: Colors.red,
+              color: l1[index].color,
               child: Column(
                 children: [
                   Text("${l1[index].quotes}"),
-                  Text("${l1[index].author}"),
-                  Text("${l1[index].category}"),
+                  Text("- ${l1[index].author}"),
                 ],
               ),
             );

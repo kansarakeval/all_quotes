@@ -8,16 +8,16 @@ class Global {
   static Global g1=Global();
 
   List<Map> quotesList=[
-    {"quotes":"We cannot solve problems with the kind of thinking we employed when we came up with them.","author":"Albert Einstein","category":"success"},
-    {"quotes":"Learn as if you will live forever, live like you will die tomorrow.","author":"Mahatma Gandhi","category":"success"},
-    {"quotes":"Either you run the day or the day runs you.","author":"Jim Rohn","category":"success"},
-    {"quotes":"Success is not final; failure is not fatal: It is the courage to continue that counts.","author":"Winston S. Churchill","category":"success"},
-    {"quotes":"It is better to fail in originality than to succeed in imitation.","author":" Herman Melville","category":"success"},
-    {"quotes":"The road to success and the road to failure are almost exactly the same.","author":"Colin R. Davis","category":"success"},
-    {"quotes":"Success usually comes to those who are too busy looking for it.","author":"Henry David Thoreau","category":"success"},
-    {"quotes":"I never dreamed about success. I worked for it.","author":"Estée Lauder","category":"success"},
-    {"quotes":"Success is getting what you want, happiness is wanting what you get.","author":"W. P. Kinsella","category":"success"},
-    {"quotes":"Don’t let yesterday take up too much of today.","author":"Will Rogers","category":"success"},
+    {"quotes":"We cannot solve problems with the kind of thinking we employed when we came up with them.","author":"Albert Einstein","category":"success","color":Colors.yellow},
+    {"quotes":"Learn as if you will live forever, live like you will die tomorrow.","author":"Mahatma Gandhi","category":"success","color":Colors.pink},
+    {"quotes":"Either you run the day or the day runs you.","author":"Jim Rohn","category":"success","color":Colors.blue},
+    {"quotes":"Success is not final; failure is not fatal: It is the courage to continue that counts.","author":"Winston S. Churchill","category":"success","color":Colors.deepOrange},
+    {"quotes":"It is better to fail in originality than to succeed in imitation.","author":" Herman Melville","category":"success","color":Colors.green},
+    {"quotes":"The road to success and the road to failure are almost exactly the same.","author":"Colin R. Davis","category":"success","color":Colors.cyan},
+    {"quotes":"Success usually comes to those who are too busy looking for it.","author":"Henry David Thoreau","category":"success","color":Colors.cyanAccent},
+    {"quotes":"I never dreamed about success. I worked for it.","author":"Estée Lauder","category":"success","color":Colors.amberAccent},
+    {"quotes":"Success is getting what you want, happiness is wanting what you get.","author":"W. P. Kinsella","category":"success","color":Colors.pink},
+    {"quotes":"Don’t let yesterday take up too much of today.","author":"Will Rogers","category":"success","color":Colors.blue},
   ];
   List<CategoryModel> categorList=[
     CategoryModel(name:"Motivaion",image: "assets/image/motivation.png",color: Colors.yellow),
