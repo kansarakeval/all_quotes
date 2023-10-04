@@ -20,22 +20,33 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
     }).toList();
 
   }
+  bool isGrid = true;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
         title: Text("All Best English Quotes",),
+        actions: [
+          IconButton(onPressed: (){
+            setState(() {
+              isGrid=! isGrid;
+            });
+
+          }, icon: Icon(isGrid?Icons.list:Icons.grid_on_outlined))
+        ],
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: GridView.builder(
+      body: isGrid ?GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 120),
         itemCount: Global.g1.categorList.length,
         itemBuilder: (context, index) {
           return quotesTile(Global.g1.categorList[index]);
         },
-      ),
+      ): ListView.builder(itemCount:Global.g1.categorList.length, itemBuilder:(context, index) {
+        return quotesTile(Global.g1.categorList[index]);
+      }, ),
 
     ));
   }
@@ -44,7 +55,7 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
     return InkWell(
       onTap: (){
         List<QuotesModel> l1 =[];
-
+        Global.g1.catName=c1.name;
         for(var x in Global.g1.modelList)
           {
             if(x.category==c1.name)
@@ -53,8 +64,6 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
               }
 
           }
-
-
         Navigator.pushNamed(context, 'motivation',arguments: l1);
       },
       child: Container(

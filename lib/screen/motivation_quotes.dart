@@ -17,24 +17,46 @@ class _MotivationScreenState extends State<MotivationScreen> {
 
     List<QuotesModel> l1 = ModalRoute.of(context)!.settings.arguments as List<QuotesModel>;
 
-    double h = MediaQuery.of(context).size.height;
+    double h = MediaQuery.of(context).size.height*0.30;
     double w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(""),
+          title: Text("${Global.g1.catName}"),
+          centerTitle: true,
         ),
         body: ListView.builder(
           itemCount: l1.length,
           itemBuilder: (context, index) {
             return Container(
-              height: 100,
+              padding: EdgeInsets.all(10),
+              height: h,
               margin:EdgeInsets.all(10),
-              color: l1[index].color,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: l1[index].color,),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${l1[index].quotes}"),
-                  Text("- ${l1[index].author}"),
+                  Expanded(
+                      child: Column(
+                        children: [
+                          Text("${l1[index].quotes}",style: TextStyle(fontSize: 15),),
+                          SizedBox(height: 20,),
+                          Text("- ${l1[index].author}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+                        ],
+                      )
+
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(Icons.download),
+                      Icon(Icons.image),
+                      Icon(Icons.color_lens),
+                      Icon(Icons.copy),
+                      Icon(Icons.share),
+                    ],
+                  )
                 ],
               ),
             );
