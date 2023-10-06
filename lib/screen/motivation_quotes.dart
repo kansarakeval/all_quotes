@@ -13,11 +13,10 @@ class MotivationScreen extends StatefulWidget {
 class _MotivationScreenState extends State<MotivationScreen> {
   @override
   Widget build(BuildContext context) {
+    List<QuotesModel> l1 =
+        ModalRoute.of(context)!.settings.arguments as List<QuotesModel>;
 
-
-    List<QuotesModel> l1 = ModalRoute.of(context)!.settings.arguments as List<QuotesModel>;
-
-    double h = MediaQuery.of(context).size.height*0.30;
+    double h = MediaQuery.of(context).size.height * 0.30;
     double w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -28,36 +27,50 @@ class _MotivationScreenState extends State<MotivationScreen> {
         body: ListView.builder(
           itemCount: l1.length,
           itemBuilder: (context, index) {
-            return Container(
-              padding: EdgeInsets.all(10),
-              height: h,
-              margin:EdgeInsets.all(10),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: l1[index].color,),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
+            return InkWell(
+              onTap: () {
+                QuotesModel model = l1[index];
+                Navigator.pushNamed(context, 'quotesedit', arguments: model);
+              },
+              child: Container(
+                padding: EdgeInsets.all(20),
+                height: h,
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: l1[index].color,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
                       child: Column(
                         children: [
-                          Text("${l1[index].quotes}",style: TextStyle(fontSize: 15),),
-                          SizedBox(height: 20,),
-                          Text("- ${l1[index].author}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+                          Expanded(
+                              child: Text(
+                            "${l1[index].quotes}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          )),
+                          Expanded(
+                              child: Text("- ${l1[index].author}",
+                                  style: TextStyle(fontSize: 15))),
                         ],
-                      )
-
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(Icons.download),
-                      Icon(Icons.image),
-                      Icon(Icons.color_lens),
-                      Icon(Icons.copy),
-                      Icon(Icons.share),
-                    ],
-                  )
-                ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Icon(Icons.download),
+                        Icon(Icons.image),
+                        Icon(Icons.color_lens),
+                        Icon(Icons.copy),
+                        Icon(Icons.share),
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           },

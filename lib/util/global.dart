@@ -135,7 +135,6 @@ class Global {
       "category": "success",
       "color": Colors.blue
     },
-
     {
       "quotes": "I'm single because I was born that way.",
       "author": "Mae West",
@@ -199,28 +198,30 @@ class Global {
       "category": "Single",
       "color": Colors.blue
     },
-
     {
-      "quotes": "Life is full of misery, loneliness, and suffering, and it’s all over much too soon.",
+      "quotes":
+          "Life is full of misery, loneliness, and suffering, and it’s all over much too soon.",
       "author": "Woody Allen",
       "category": "Lonely",
       "color": Colors.yellow
     },
     {
       "quotes":
-      "The most terrible poverty is loneliness and the feeling of being unloved.",
+          "The most terrible poverty is loneliness and the feeling of being unloved.",
       "author": "Mother Teresa",
       "category": "Lonely",
       "color": Colors.pink
     },
     {
-      "quotes": "For fear you will be alone, you do so many things that aren’t you at all.",
+      "quotes":
+          "For fear you will be alone, you do so many things that aren’t you at all.",
       "author": "Richard Brautigan",
       "category": "Lonely",
       "color": Colors.blue
     },
     {
-      "quotes": "The greatest thing in the world is to know how to belong to oneself.",
+      "quotes":
+          "The greatest thing in the world is to know how to belong to oneself.",
       "author": "Michel de Montaigne",
       "category": "Lonely",
       "color": Colors.deepOrange
@@ -245,14 +246,13 @@ class Global {
     },
     {
       "quotes":
-      "I’m not the girl you’re taking home. I keep dancing on my own.",
+          "I’m not the girl you’re taking home. I keep dancing on my own.",
       "author": "Robyn",
       "category": "Lonely",
       "color": Colors.amberAccent
     },
     {
-      "quotes":
-      "Can anybody hear me or am I talking to myself?",
+      "quotes": "Can anybody hear me or am I talking to myself?",
       "author": "Simple Plan",
       "category": "Lonely",
       "color": Colors.pink
@@ -263,39 +263,41 @@ class Global {
       "category": "Lonely",
       "color": Colors.blue
     },
-
     {
-      "quotes": "If you look the right way, you can see that the whole world is a garden.",
+      "quotes":
+          "If you look the right way, you can see that the whole world is a garden.",
       "author": "Frances Hodgson Burnett",
       "category": "Attitude",
       "color": Colors.yellow
     },
     {
       "quotes":
-      "It makes a big difference in your life when you stay positive.",
+          "It makes a big difference in your life when you stay positive.",
       "author": "Ellen DeGeneres",
       "category": "Attitude",
       "color": Colors.pink
     },
     {
-      "quotes": "A positive attitude is something everyone can work on, and everyone can learn how to employ it.",
+      "quotes":
+          "A positive attitude is something everyone can work on, and everyone can learn how to employ it.",
       "author": "Captain Jack Sparrow",
       "category": "Attitude",
       "color": Colors.blue
     },
     {
-      "quotes": "Optimism is the faith that leads to achievement; nothing can be done without hope.",
+      "quotes":
+          "Optimism is the faith that leads to achievement; nothing can be done without hope.",
       "author": "Helen Keller",
       "category": "Attitude",
       "color": Colors.deepOrange
     },
     {
-      "quotes": "When a happy person comes into the room, it is as if another candle has been lit.",
+      "quotes":
+          "When a happy person comes into the room, it is as if another candle has been lit.",
       "author": "Ralph Waldo Emerson",
       "category": "Attitude",
       "color": Colors.green
     },
-
     {
       "quotes": "Happiness depends upon ourselves.",
       "author": "Aristotle",
@@ -303,32 +305,32 @@ class Global {
       "color": Colors.cyan
     },
     {
-      "quotes": "Even if happiness forgets you a little bit, never completely forget about it.",
+      "quotes":
+          "Even if happiness forgets you a little bit, never completely forget about it.",
       "author": "aques Prevert",
       "category": "Happiness",
       "color": Colors.cyanAccent
     },
     {
       "quotes":
-      "One of the secrets of a happy life is continuous small treats.",
+          "One of the secrets of a happy life is continuous small treats.",
       "author": "Iris Murdoch",
       "category": "Happiness",
       "color": Colors.amberAccent
     },
     {
-      "quotes":
-      "The only joy in the world is to begin",
+      "quotes": "The only joy in the world is to begin",
       "author": "Cesare Pavese",
       "category": "Happiness",
       "color": Colors.pink
     },
     {
-      "quotes": "It is only possible to live happily ever after on a daily basis.",
+      "quotes":
+          "It is only possible to live happily ever after on a daily basis.",
       "author": "Margaret Bonanno",
       "category": "Happiness",
       "color": Colors.blue
     },
-
     {
       "quotes": "Life's under no obligation to give us what we expect.",
       "author": "Margaret Mitchell",
@@ -337,52 +339,55 @@ class Global {
     },
     {
       "quotes":
-      "Things change. And friends leave. And life doesn't stop for anybody.",
+          "Things change. And friends leave. And life doesn't stop for anybody.",
       "author": "Stephen Chbosky",
       "category": "Sad",
       "color": Colors.pink
     },
     {
-      "quotes": "Life is a moderately good play with a badly written third act.",
+      "quotes":
+          "Life is a moderately good play with a badly written third act.",
       "author": "Truman Capote",
       "category": "Sad",
       "color": Colors.blue
     },
     {
-      "quotes": "The excursion is the same when you go looking for your sorrow as when you go looking for your joy.",
+      "quotes":
+          "The excursion is the same when you go looking for your sorrow as when you go looking for your joy.",
       "author": "Eudora Welty",
       "category": "Sad",
       "color": Colors.deepOrange
     },
     {
-      "quotes": "I wish I could go back to the day I met you and just walk away.",
+      "quotes":
+          "I wish I could go back to the day I met you and just walk away.",
       "author": "Unknown ",
       "category": "Sad",
       "color": Colors.green
     },
-
     {
-      "quotes": "There is no sunrise so beautiful that it is worth waking me up to see it.",
+      "quotes":
+          "There is no sunrise so beautiful that it is worth waking me up to see it.",
       "author": "Mindy Kaling",
       "category": "Funny",
       "color": Colors.cyan
     },
     {
-      "quotes": "Life is short. Drive fast and leave a sexy corpse. That's one of my mottos.",
+      "quotes":
+          "Life is short. Drive fast and leave a sexy corpse. That's one of my mottos.",
       "author": "Stanley Hudson, The Office",
       "category": "Funny",
       "color": Colors.cyanAccent
     },
     {
-      "quotes":
-      "I always cook with wine. Sometimes I even add it to the food.",
+      "quotes": "I always cook with wine. Sometimes I even add it to the food.",
       "author": "W.C. Fields",
       "category": "Funny",
       "color": Colors.amberAccent
     },
     {
       "quotes":
-      "Do not take life too seriously. You will never get out of it alive.",
+          "Do not take life too seriously. You will never get out of it alive.",
       "author": "Elbert Hubbard",
       "category": "Funny",
       "color": Colors.pink
@@ -393,7 +398,6 @@ class Global {
       "category": "Funny",
       "color": Colors.blue
     },
-
     {
       "quotes": "Life is beautiful and so are you.",
       "author": "Debasish Mridha",
@@ -408,25 +412,25 @@ class Global {
     },
     {
       "quotes":
-      "Once you become accustomed to life you will see its full meaning and its incredible beauty.",
+          "Once you become accustomed to life you will see its full meaning and its incredible beauty.",
       "author": "Jon Krakauer",
       "category": "Beautiful",
       "color": Colors.amberAccent
     },
     {
       "quotes":
-      "Life is really simple, but we insist on making it complicated.",
+          "Life is really simple, but we insist on making it complicated.",
       "author": "Confucius",
       "category": "Beautiful",
       "color": Colors.pink
     },
     {
-      "quotes": "Life can only be understood backward, but it must be lived forwards",
+      "quotes":
+          "Life can only be understood backward, but it must be lived forwards",
       "author": "Soren Kierkegaard",
       "category": "Beautiful",
       "color": Colors.blue
     },
-
     {
       "quotes": "A rose by any other name would smell as sweet.",
       "author": "William Shakespeare",
@@ -441,14 +445,13 @@ class Global {
     },
     {
       "quotes":
-      "Ask not what your country can do for you; ask what you can do for your country.",
+          "Ask not what your country can do for you; ask what you can do for your country.",
       "author": "John Kennedy",
       "category": "Best",
       "color": Colors.amberAccent
     },
     {
-      "quotes":
-      "Ask, and it shall be given you; seek, and you shall find.",
+      "quotes": "Ask, and it shall be given you; seek, and you shall find.",
       "author": "the Bible",
       "category": "Best",
       "color": Colors.pink
@@ -459,7 +462,6 @@ class Global {
       "category": "Best",
       "color": Colors.blue
     },
-
     {
       "quotes": "Bet on me? Bet I will.",
       "author": "Lizzo",
@@ -473,15 +475,13 @@ class Global {
       "color": Colors.cyanAccent
     },
     {
-      "quotes":
-      "Make each day your masterpiece",
+      "quotes": "Make each day your masterpiece",
       "author": "John Wooden",
       "category": "Work",
       "color": Colors.amberAccent
     },
     {
-      "quotes":
-      "We will fail when we fail to try.",
+      "quotes": "We will fail when we fail to try.",
       "author": "Rosa Parks",
       "category": "Work",
       "color": Colors.pink
@@ -492,7 +492,6 @@ class Global {
       "category": "Work",
       "color": Colors.blue
     },
-
     {
       "quotes": "The best thing to hold onto in life is each other.",
       "author": "Audrey Hepburn",
@@ -507,14 +506,14 @@ class Global {
     },
     {
       "quotes":
-      "I am who I am because of you. You are every reason, every hope, and every dream I’ve ever had.",
+          "I am who I am because of you. You are every reason, every hope, and every dream I’ve ever had.",
       "author": "The Notebook",
       "category": "Romantic",
       "color": Colors.amberAccent
     },
     {
       "quotes":
-      "If I had a flower for every time I thought of you... I could walk through my garden forever.",
+          "If I had a flower for every time I thought of you... I could walk through my garden forever.",
       "author": "Alfred Tennyson",
       "category": "Romantic",
       "color": Colors.pink
@@ -525,9 +524,9 @@ class Global {
       "category": "Romantic",
       "color": Colors.blue
     },
-
     {
-      "quotes": "Loved you yesterday, love you still, always have, always will.",
+      "quotes":
+          "Loved you yesterday, love you still, always have, always will.",
       "author": "Elaine Davis",
       "category": "Love",
       "color": Colors.cyan
@@ -539,26 +538,25 @@ class Global {
       "color": Colors.cyanAccent
     },
     {
-      "quotes":
-      "If I know what love is, it is because of you.",
+      "quotes": "If I know what love is, it is because of you.",
       "author": " Hermann Hesse",
       "category": "Love",
       "color": Colors.amberAccent
     },
     {
       "quotes":
-      "I swear I couldn’t love you more than I do right now, and yet I know I will tomorrow.",
+          "I swear I couldn’t love you more than I do right now, and yet I know I will tomorrow.",
       "author": "Leo Christopher",
       "category": "Love",
       "color": Colors.pink
     },
     {
-      "quotes": "A man is already halfway in love with any woman who listens to him.",
+      "quotes":
+          "A man is already halfway in love with any woman who listens to him.",
       "author": "Brendan Francis",
       "category": "Love",
       "color": Colors.blue
     },
-
     {
       "quotes": "Friends are the family we choose.",
       "author": "Jennifer Aniston",
@@ -573,68 +571,40 @@ class Global {
     },
     {
       "quotes":
-      "Kindness is one thing you can’t give away. It always comes back.",
+          "Kindness is one thing you can’t give away. It always comes back.",
       "author": "George Skolsky",
       "category": "Thinking",
       "color": Colors.amberAccent
     },
     {
-      "quotes":
-      "Try to be a rainbow in someone else’s cloud.",
+      "quotes": "Try to be a rainbow in someone else’s cloud.",
       "author": "Maya Angelou",
       "category": "Thinking",
       "color": Colors.pink
     },
     {
-      "quotes": "Sometimes, when things are falling apart, they may actually be falling into place",
+      "quotes":
+          "Sometimes, when things are falling apart, they may actually be falling into place",
       "author": " Unknown",
       "category": "Thinking",
       "color": Colors.blue
     },
   ];
   List<CategoryModel> categorList = [
-    CategoryModel(
-        name: "motivation",
-        image: "assets/image/motivation.png",
-        color: Colors.yellow),
-    CategoryModel(
-        name: "Single", image: "assets/image/single.png", color: Colors.pink),
-    CategoryModel(
-        name: "Lonely", image: "assets/image/lonely.png", color: Colors.blue),
-    CategoryModel(
-        name: "Attitude",
-        image: "assets/image/attitude.png",
-        color: Colors.deepOrange),
-    CategoryModel(
-        name: "Happiness",
-        image: "assets/image/happiness.png",
-        color: Colors.green),
-    CategoryModel(
-        name: "Sad", image: "assets/image/sad.png", color: Colors.cyan),
-    CategoryModel(
-        name: "Funny",
-        image: "assets/image/funny.png",
-        color: Colors.cyanAccent),
-    CategoryModel(
-        name: "Beautiful",
-        image: "assets/image/beautiful.png",
-        color: Colors.amberAccent),
-    CategoryModel(
-        name: "Best", image: "assets/image/best.png", color: Colors.pink),
-    CategoryModel(
-        name: "Work", image: "assets/image/work.png", color: Colors.blue),
-    CategoryModel(
-        name: "Romantic",
-        image: "assets/image/romentic.png",
-        color: Colors.deepOrange),
-    CategoryModel(
-        name: "Love", image: "assets/image/love.png", color: Colors.green),
-    CategoryModel(
-        name: "success", image: "assets/image/success.png", color: Colors.cyan),
-    CategoryModel(
-        name: "Thinking",
-        image: "assets/image/Thinking.png",
-        color: Colors.cyanAccent),
+    CategoryModel(name: "motivation", image: "assets/image/motivation.png", color: Colors.yellow),
+    CategoryModel(name: "Single", image: "assets/image/single.png", color: Colors.pink),
+    CategoryModel(name: "Lonely", image: "assets/image/lonely.png", color: Colors.blue),
+    CategoryModel(name: "Attitude", image: "assets/image/attitude.png", color: Colors.deepOrange),
+    CategoryModel(name: "Happiness", image: "assets/image/happiness.png", color: Colors.green),
+    CategoryModel(name: "Sad", image: "assets/image/sad.png", color: Colors.cyan),
+    CategoryModel(name: "Funny", image: "assets/image/funny.png", color: Colors.cyanAccent),
+    CategoryModel(name: "Beautiful", image: "assets/image/beautiful.png", color: Colors.amberAccent),
+    CategoryModel(name: "Best", image: "assets/image/best.png", color: Colors.pink),
+    CategoryModel(name: "Work", image: "assets/image/work.png", color: Colors.blue),
+    CategoryModel(name: "Romantic", image: "assets/image/romantic.png", color: Colors.deepOrange),
+    CategoryModel(name: "Love", image: "assets/image/love.png", color: Colors.green),
+    CategoryModel(name: "success", image: "assets/image/success.png", color: Colors.cyan),
+    CategoryModel(name: "Thinking", image: "assets/image/thinking.png", color: Colors.cyanAccent),
   ];
 
   List<QuotesModel> modelList = [];

@@ -76,11 +76,11 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${c1.name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14),),
+                Text("${c1.name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                 Spacer(),
                 Align(
                   alignment: Alignment.bottomRight,
-                    child: Image.asset("${c1.image}",height: 60,width: 60,))
+                    child: Image.asset("${c1.image}",height: 50,width: 50,))
               ],
             ),
           ),
