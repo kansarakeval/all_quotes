@@ -76,7 +76,7 @@ class _QuotesHomeScreenState extends State<QuotesHomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${c1.name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                Text("${c1.name}",style: TextStyle(fontFamily: 'Viga',fontWeight: FontWeight.bold,fontSize: 16),),
                 Spacer(),
                 Align(
                   alignment: Alignment.bottomRight,

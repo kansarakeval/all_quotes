@@ -50,12 +50,12 @@ class _MotivationScreenState extends State<MotivationScreen> {
                               child: Text(
                             "${l1[index].quotes}",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
+                            style: TextStyle(fontFamily: 'Concert',
+                                 fontSize: 19),
                           )),
                           Expanded(
                               child: Text("- ${l1[index].author}",
-                                  style: TextStyle(fontSize: 15))),
+                                  style: TextStyle(fontFamily: 'Concert',fontStyle: FontStyle.italic,fontSize: 16))),
                         ],
                       ),
                     ),

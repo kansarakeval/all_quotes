@@ -1,4 +1,5 @@
 import 'package:all_quotes/Model/QuotesModel.dart';
+import 'package:all_quotes/util/global.dart';
 import 'package:flutter/material.dart';
 
 class QuotesEditScreen extends StatefulWidget {
@@ -9,6 +10,8 @@ class QuotesEditScreen extends StatefulWidget {
 }
 
 class _QuotesEditScreenState extends State<QuotesEditScreen> {
+  int i =0;
+
   @override
   Widget build(BuildContext context) {
     QuotesModel model =
@@ -22,24 +25,25 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
               margin: EdgeInsets.all(10),
               height: MediaQuery.of(context).size.width,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.pinkAccent,),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Global.g1.colorList[i],),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "${model.quotes}",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: TextStyle(fontFamily: 'Domine',fontSize: 25, color: Colors.black,fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 10,),
                   Align(
                       alignment: Alignment.topRight,
                       child: Text(
                         "- ${model.author}",
-                        style: TextStyle(
-                            fontSize: 25,
+                        style: TextStyle(fontFamily: 'Domine',
+                            fontSize: 20,
                             color: Colors.black,
-                            fontWeight: FontWeight.bold),
+                          fontStyle: FontStyle.italic,fontWeight: FontWeight.w500
+                            ),
                       )),
                 ],
               )),
@@ -52,7 +56,12 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(Icons.download_for_offline,color: Colors.white,),
-                Icon(Icons.color_lens,color: Colors.white,),
+                InkWell(onTap: () {
+                  setState(() {
+                    i=(i+1)% Global.g1.colorList.length;
+                  });
+                },
+                    child: Icon(Icons.color_lens,color: Colors.white,)),
                 Icon(Icons.image,color: Colors.white,),
                 Icon(Icons.copy,color: Colors.white,),
                 Icon(Icons.favorite,color: Colors.red,),

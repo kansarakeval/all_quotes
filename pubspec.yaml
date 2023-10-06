@@ -86,6 +86,21 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: Domine
+      fonts:
+        - asset: assets/fonts/DomineBold700.ttf
+          weight: 700
+        - asset: assets/fonts/DomineMedium500.ttf
+          weight: 500
+        - asset: assets/fonts/DomineRegular400.ttf
+          weight: 400
+    - family: Concert
+      fonts:
+        - asset: assets/fonts/ConcertOneRegular.ttf
+    - family: Viga
+      fonts:
+        - asset: assets/fonts/VigaRegular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
