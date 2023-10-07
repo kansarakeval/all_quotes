@@ -606,17 +606,6 @@ class Global {
     CategoryModel(name: "success", image: "assets/image/success.png", color: Colors.cyan),
     CategoryModel(name: "Thinking", image: "assets/image/thinking.png", color: Colors.cyanAccent),
   ];
-  List<Color> colorList =[
-    Colors.white,
-    Colors.red,
-    Colors.black45,
-    Colors.pink,
-    Colors.yellow,
-    Colors.cyanAccent,
-    Colors.blueAccent,
-    Colors.purpleAccent,
-    Colors.green,
-  ];
 
   List<QuotesModel> modelList = [];
 
