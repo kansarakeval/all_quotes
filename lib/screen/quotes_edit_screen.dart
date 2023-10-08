@@ -13,7 +13,7 @@ class QuotesEditScreen extends StatefulWidget {
 }
 
 class _QuotesEditScreenState extends State<QuotesEditScreen> {
-  int colorbgindex = 1, colortextindex = 0,imgindex=1;
+  int colorbgindex = 1, colortextindex = 0, imgindex=0;
   TextAlign txtalign = TextAlign.center;
   bool bold = false;
   bool italic = false;
@@ -34,6 +34,7 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: colorbg[colorbgindex],
+                  image: DecorationImage(image: AssetImage("assets/image/bgimg/${imageList[imgindex]}"),fit: BoxFit.cover)
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -163,7 +164,13 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                         padding: EdgeInsets.all(10),
                         height: 100,
                         width: 100,
-                        child: Image.asset("assets/image/bgimg/${imageList[index]}",height: 50,width: 50,fit: BoxFit.cover),
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              imgindex=index;
+                            });
+                          },
+                            child: Image.asset("assets/image/bgimg/${imageList[index]}",height: 50,width: 50,fit: BoxFit.cover)),
                       );
                     },),
                   )
