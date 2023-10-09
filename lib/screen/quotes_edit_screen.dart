@@ -13,10 +13,11 @@ class QuotesEditScreen extends StatefulWidget {
 }
 
 class _QuotesEditScreenState extends State<QuotesEditScreen> {
-  int colorbgindex = 1, colortextindex = 0, imgindex=0;
+  int colorbgindex = 1, colortextindex = 0, imgindex=0,fontstyleindex =0;
   TextAlign txtalign = TextAlign.center;
   bool bold = false;
   bool italic = false;
+  bool isimageindex=true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,24 +27,61 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.all(10),
-                height: MediaQuery.of(context).size.width,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: colorbg[colorbgindex],
-                  image: DecorationImage(image: AssetImage("assets/image/bgimg/${imageList[imgindex]}"),fit: BoxFit.cover)
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                    height: MediaQuery.of(context).size.width,
+                    width: MediaQuery.of(context).size.width,
+                    color: colorbg[colorbgindex],
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${model.quotes}",
+                          textAlign: txtalign,
+                          style: TextStyle(
+                            fontFamily: fontsList[fontstyleindex],
+                            fontSize: 25,
+                            color: colorbg[colortextindex],
+                            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+                            fontStyle: italic ? FontStyle.italic : FontStyle.normal,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Align(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              "- ${model.author}",
+                              textAlign: txtalign,
+                              style: TextStyle(
+                                fontFamily: fontsList[fontstyleindex],
+                                fontSize: 20,
+                                color: colorbg[colortextindex],
+                                fontWeight:
+                                bold ? FontWeight.bold : FontWeight.normal,
+                                fontStyle:
+                                italic ? FontStyle.italic : FontStyle.normal,
+                              ),
+                            )),
+                      ],
+                    )),
+                Visibility(
+                  visible: isimageindex,
+                  child: Image.asset("assets/image/bgimg/${imageList[imgindex]}",fit: BoxFit.cover,
+                    height: MediaQuery.of(context).size.width,
+                    width: MediaQuery.of(context).size.width,),
                 ),
-                child: Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "${model.quotes}",
                       textAlign: txtalign,
                       style: TextStyle(
-                        fontFamily: 'Domine',
+                        fontFamily: fontsList[fontstyleindex],
                         fontSize: 25,
                         color: colorbg[colortextindex],
                         fontWeight: bold ? FontWeight.bold : FontWeight.normal,
@@ -59,17 +97,20 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                           "- ${model.author}",
                           textAlign: txtalign,
                           style: TextStyle(
-                            fontFamily: 'Domine',
+                            fontFamily: fontsList[fontstyleindex],
                             fontSize: 20,
                             color: colorbg[colortextindex],
                             fontWeight:
-                                bold ? FontWeight.bold : FontWeight.normal,
+                            bold ? FontWeight.bold : FontWeight.normal,
                             fontStyle:
-                                italic ? FontStyle.italic : FontStyle.normal,
+                            italic ? FontStyle.italic : FontStyle.normal,
+
                           ),
                         )),
                   ],
-                )),
+                )
+              ],
+            ),
             Spacer(),
             Container(
               height: MediaQuery.of(context).size.height * 0.30,
@@ -88,10 +129,11 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                       children: [
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.download_for_offline)),
+                            icon: Icon(Icons.download_for_offline,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
+                                isimageindex=false;
                                 if (colorbgindex < colorbg.length - 1) {
                                   colorbgindex++;
                                 } else {
@@ -99,8 +141,8 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                 }
                               });
                             },
-                            icon: Icon(Icons.color_lens)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.image)),
+                            icon: Icon(Icons.color_lens,color: Colors.white,)),
+                        IconButton(onPressed: () {}, icon: Icon(Icons.image,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
@@ -111,7 +153,7 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                 }
                               });
                             },
-                            icon: Icon(Icons.format_color_text)),
+                            icon: Icon(Icons.format_color_text,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
@@ -119,40 +161,40 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                     text: "${model.quotes}" "- ${model.author}"));
                               });
                             },
-                            icon: Icon(Icons.copy)),
+                            icon: Icon(Icons.copy,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 bold = !bold;
                               });
                             },
-                            icon: Icon(Icons.format_bold)),
+                            icon: Icon(Icons.format_bold,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 italic = !italic;
                               });
                             },
-                            icon: Icon(Icons.format_italic)),
+                            icon: Icon(Icons.format_italic,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.left;
                               });
-                            }, icon: Icon(Icons.format_align_left)),
+                            }, icon: Icon(Icons.format_align_left,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.center;
                               });
                             },
-                            icon: Icon(Icons.format_align_center)),
+                            icon: Icon(Icons.format_align_center,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.right;
                               });
-                            }, icon: Icon(Icons.format_align_right)),
+                            }, icon: Icon(Icons.format_align_right,color: Colors.white,)),
                       ],
                     ),
                   ),
@@ -167,13 +209,30 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                         child: InkWell(
                           onTap: () {
                             setState(() {
+                              isimageindex=true;
                               imgindex=index;
                             });
                           },
                             child: Image.asset("assets/image/bgimg/${imageList[index]}",height: 50,width: 50,fit: BoxFit.cover)),
                       );
                     },),
-                  )
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: fontsList.length,itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          setState(() {
+                            fontstyleindex=index;
+                          });
+                        },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("Keval",style: TextStyle(fontSize: 20,fontFamily: fontsList[index],color: Colors.white),),
+                          ));
+                    },),
+                  ),
                 ],
               ),
             ),

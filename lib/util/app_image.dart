@@ -7,3 +7,7 @@ List imageList = [
   "img7.jpg",
   "img8.jpg",
 ];
+
+List fontsList =[
+  "Domine","Concert","Viga"
+];
