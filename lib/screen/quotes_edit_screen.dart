@@ -3,7 +3,12 @@ import 'package:all_quotes/util/app_color.dart';
 import 'package:all_quotes/util/app_image.dart';
 import 'package:all_quotes/util/global.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui' as ui;
+
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:share_extend/share_extend.dart';
 
 class QuotesEditScreen extends StatefulWidget {
   const QuotesEditScreen({super.key});
@@ -18,6 +23,7 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
   bool bold = false;
   bool italic = false;
   bool isimageindex=true;
+  GlobalKey globalKey=GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -27,94 +33,97 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                    height: MediaQuery.of(context).size.width,
-                    width: MediaQuery.of(context).size.width,
-                    color: colorbg[colorbgindex],
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "${model.quotes}",
-                          textAlign: txtalign,
-                          style: TextStyle(
-                            fontFamily: fontsList[fontstyleindex],
-                            fontSize: 25,
-                            color: colorbg[colortextindex],
-                            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-                            fontStyle: italic ? FontStyle.italic : FontStyle.normal,
+            RepaintBoundary(
+              key: globalKey,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                      height: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width,
+                      color: colorbg[colorbgindex],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "${model.quotes}",
+                            textAlign: txtalign,
+                            style: TextStyle(
+                              fontFamily: fontsList[fontstyleindex],
+                              fontSize: 25,
+                              color: colorbg[colortextindex],
+                              fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+                              fontStyle: italic ? FontStyle.italic : FontStyle.normal,
+                            ),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                "- ${model.author}",
+                                textAlign: txtalign,
+                                style: TextStyle(
+                                  fontFamily: fontsList[fontstyleindex],
+                                  fontSize: 20,
+                                  color: colorbg[colortextindex],
+                                  fontWeight:
+                                  bold ? FontWeight.bold : FontWeight.normal,
+                                  fontStyle:
+                                  italic ? FontStyle.italic : FontStyle.normal,
+                                ),
+                              )),
+                        ],
+                      )),
+                  Visibility(
+                    visible: isimageindex,
+                    child: Image.asset("assets/image/bgimg/${imageList[imgindex]}",fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width,),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${model.quotes}",
+                        textAlign: txtalign,
+                        style: TextStyle(
+                          fontFamily: fontsList[fontstyleindex],
+                          fontSize: 25,
+                          color: colorbg[colortextindex],
+                          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+                          fontStyle: italic ? FontStyle.italic : FontStyle.normal,
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Align(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "- ${model.author}",
-                              textAlign: txtalign,
-                              style: TextStyle(
-                                fontFamily: fontsList[fontstyleindex],
-                                fontSize: 20,
-                                color: colorbg[colortextindex],
-                                fontWeight:
-                                bold ? FontWeight.bold : FontWeight.normal,
-                                fontStyle:
-                                italic ? FontStyle.italic : FontStyle.normal,
-                              ),
-                            )),
-                      ],
-                    )),
-                Visibility(
-                  visible: isimageindex,
-                  child: Image.asset("assets/image/bgimg/${imageList[imgindex]}",fit: BoxFit.cover,
-                    height: MediaQuery.of(context).size.width,
-                    width: MediaQuery.of(context).size.width,),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${model.quotes}",
-                      textAlign: txtalign,
-                      style: TextStyle(
-                        fontFamily: fontsList[fontstyleindex],
-                        fontSize: 25,
-                        color: colorbg[colortextindex],
-                        fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-                        fontStyle: italic ? FontStyle.italic : FontStyle.normal,
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                        alignment: Alignment.topRight,
-                        child: Text(
-                          "- ${model.author}",
-                          textAlign: txtalign,
-                          style: TextStyle(
-                            fontFamily: fontsList[fontstyleindex],
-                            fontSize: 20,
-                            color: colorbg[colortextindex],
-                            fontWeight:
-                            bold ? FontWeight.bold : FontWeight.normal,
-                            fontStyle:
-                            italic ? FontStyle.italic : FontStyle.normal,
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                          alignment: Alignment.topRight,
+                          child: Text(
+                            "- ${model.author}",
+                            textAlign: txtalign,
+                            style: TextStyle(
+                              fontFamily: fontsList[fontstyleindex],
+                              fontSize: 20,
+                              color: colorbg[colortextindex],
+                              fontWeight:
+                              bold ? FontWeight.bold : FontWeight.normal,
+                              fontStyle:
+                              italic ? FontStyle.italic : FontStyle.normal,
 
-                          ),
-                        )),
-                  ],
-                )
-              ],
+                            ),
+                          )),
+                    ],
+                  )
+                ],
+              ),
             ),
             Spacer(),
             Container(
               height: MediaQuery.of(context).size.height * 0.30,
-              width: MediaQuery.of(context).size.width * 0.90,
+              width: MediaQuery.of(context).size.width * 0.95,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.black,
@@ -128,8 +137,16 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () async{
+                              await saveImage();
+                            },
                             icon: Icon(Icons.download_for_offline,color: Colors.white,)),
+                        IconButton(
+                            onPressed: () async{
+                              dynamic path= await saveImage();
+                              await ShareExtend.share(path['filePath'], "image");
+                            },
+                            icon: Icon(Icons.share,color: Colors.white,)),
                         IconButton(
                             onPressed: () {
                               setState(() {
@@ -238,15 +255,14 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
             ),
           ],
         ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   items: [
-        //     BottomNavigationBarItem(icon: Icon(Icons.download_for_offline,color: Colors.black,),label: ''),
-        //     BottomNavigationBarItem(icon: Icon(Icons.color_lens,color: Colors.black,),label: 'color'),
-        //     BottomNavigationBarItem(icon: Icon(Icons.image_rounded,color: Colors.black,),label: 'image'),
-        //     BottomNavigationBarItem(icon: Icon(Icons.copy,color: Colors.black,),label: 'copy'),
-        //     BottomNavigationBarItem(icon: Icon(Icons.favorite,color: Colors.black,),label: 'like'),
-        //   ],
       ),
     );
+  }
+  Future<dynamic> saveImage()async{
+    RenderRepaintBoundary boundary= globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    ui.Image image=await boundary.toImage();
+    ByteData? bytedata= await image.toByteData(format: ui.ImageByteFormat.png);
+
+    return await ImageGallerySaver.saveImage(bytedata!.buffer.asUint8List());
   }
 }
