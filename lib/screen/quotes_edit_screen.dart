@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:all_quotes/Model/QuotesModel.dart';
 import 'package:all_quotes/util/app_color.dart';
 import 'package:all_quotes/util/app_image.dart';
@@ -6,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
-
-import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:share_extend/share_extend.dart';
+import 'package:share_plus/share_plus.dart';
 
 class QuotesEditScreen extends StatefulWidget {
   const QuotesEditScreen({super.key});
@@ -18,12 +17,13 @@ class QuotesEditScreen extends StatefulWidget {
 }
 
 class _QuotesEditScreenState extends State<QuotesEditScreen> {
-  int colorbgindex = 1, colortextindex = 0, imgindex=0,fontstyleindex =0;
+  int colorbgindex = 1, colortextindex = 0, imgindex = 0, fontstyleindex = 0;
   TextAlign txtalign = TextAlign.center;
   bool bold = false;
   bool italic = false;
-  bool isimageindex=true;
-  GlobalKey globalKey=GlobalKey();
+  bool isimageindex = true;
+  double slidervalue = 5;
+  GlobalKey globalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,10 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                   Container(
                       height: MediaQuery.of(context).size.width,
                       width: MediaQuery.of(context).size.width,
-                      color: colorbg[colorbgindex],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: colorbg[colorbgindex],
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -50,10 +53,12 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                             textAlign: txtalign,
                             style: TextStyle(
                               fontFamily: fontsList[fontstyleindex],
-                              fontSize: 25,
+                              fontSize: slidervalue,
                               color: colorbg[colortextindex],
-                              fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-                              fontStyle: italic ? FontStyle.italic : FontStyle.normal,
+                              fontWeight:
+                                  bold ? FontWeight.bold : FontWeight.normal,
+                              fontStyle:
+                                  italic ? FontStyle.italic : FontStyle.normal,
                             ),
                           ),
                           SizedBox(
@@ -66,21 +71,29 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                 textAlign: txtalign,
                                 style: TextStyle(
                                   fontFamily: fontsList[fontstyleindex],
-                                  fontSize: 20,
+                                  fontSize: slidervalue,
                                   color: colorbg[colortextindex],
-                                  fontWeight:
-                                  bold ? FontWeight.bold : FontWeight.normal,
-                                  fontStyle:
-                                  italic ? FontStyle.italic : FontStyle.normal,
+                                  fontWeight: bold
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
+                                  fontStyle: italic
+                                      ? FontStyle.italic
+                                      : FontStyle.normal,
                                 ),
                               )),
                         ],
                       )),
                   Visibility(
                     visible: isimageindex,
-                    child: Image.asset("assets/image/bgimg/${imageList[imgindex]}",fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.width,
-                      width: MediaQuery.of(context).size.width,),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "assets/image/bgimg/${imageList[imgindex]}",
+                        fit: BoxFit.cover,
+                        height: MediaQuery.of(context).size.width,
+                        width: MediaQuery.of(context).size.width,
+                      ),
+                    ),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -90,10 +103,12 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                         textAlign: txtalign,
                         style: TextStyle(
                           fontFamily: fontsList[fontstyleindex],
-                          fontSize: 25,
+                          fontSize: slidervalue,
                           color: colorbg[colortextindex],
-                          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-                          fontStyle: italic ? FontStyle.italic : FontStyle.normal,
+                          fontWeight:
+                              bold ? FontWeight.bold : FontWeight.normal,
+                          fontStyle:
+                              italic ? FontStyle.italic : FontStyle.normal,
                         ),
                       ),
                       SizedBox(
@@ -106,13 +121,12 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                             textAlign: txtalign,
                             style: TextStyle(
                               fontFamily: fontsList[fontstyleindex],
-                              fontSize: 20,
+                              fontSize: slidervalue,
                               color: colorbg[colortextindex],
                               fontWeight:
-                              bold ? FontWeight.bold : FontWeight.normal,
+                                  bold ? FontWeight.bold : FontWeight.normal,
                               fontStyle:
-                              italic ? FontStyle.italic : FontStyle.normal,
-
+                                  italic ? FontStyle.italic : FontStyle.normal,
                             ),
                           )),
                     ],
@@ -122,7 +136,7 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
             ),
             Spacer(),
             Container(
-              height: MediaQuery.of(context).size.height * 0.30,
+              height: MediaQuery.of(context).size.height * 0.35,
               width: MediaQuery.of(context).size.width * 0.95,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -131,26 +145,43 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Slider(
+                    value: slidervalue,
+                    onChanged: (value) {
+                      setState(() {
+                        slidervalue = value;
+                      });
+                    },
+                    divisions: 8,
+                    min: 0,
+                    max: 25,
+                  ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         IconButton(
-                            onPressed: () async{
+                            onPressed: () async {
                               await saveImage();
                             },
-                            icon: Icon(Icons.download_for_offline,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.download_for_offline,
+                              color: Colors.white,
+                            )),
                         IconButton(
-                            onPressed: () async{
-                              dynamic path= await saveImage();
-                              await ShareExtend.share(path['filePath'], "image");
+                            onPressed: () async {
+                              File file = await saveImage();
+                              await Share.shareXFiles([XFile(file.path)]);
                             },
-                            icon: Icon(Icons.share,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.share,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                isimageindex=false;
+                                isimageindex = false;
                                 if (colorbgindex < colorbg.length - 1) {
                                   colorbgindex++;
                                 } else {
@@ -158,8 +189,16 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                 }
                               });
                             },
-                            icon: Icon(Icons.color_lens,color: Colors.white,)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.image,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.color_lens,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.image,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
@@ -170,85 +209,127 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
                                 }
                               });
                             },
-                            icon: Icon(Icons.format_color_text,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.format_color_text,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 Clipboard.setData(ClipboardData(
-                                    text: "${model.quotes}" "- ${model.author}"));
+                                    text:
+                                        "${model.quotes}" "- ${model.author}"));
                               });
                             },
-                            icon: Icon(Icons.copy,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.copy,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 bold = !bold;
                               });
                             },
-                            icon: Icon(Icons.format_bold,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.format_bold,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 italic = !italic;
                               });
                             },
-                            icon: Icon(Icons.format_italic,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.format_italic,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.left;
                               });
-                            }, icon: Icon(Icons.format_align_left,color: Colors.white,)),
+                            },
+                            icon: Icon(
+                              Icons.format_align_left,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.center;
                               });
                             },
-                            icon: Icon(Icons.format_align_center,color: Colors.white,)),
+                            icon: Icon(
+                              Icons.format_align_center,
+                              color: Colors.white,
+                            )),
                         IconButton(
                             onPressed: () {
                               setState(() {
                                 txtalign = TextAlign.right;
                               });
-                            }, icon: Icon(Icons.format_align_right,color: Colors.white,)),
+                            },
+                            icon: Icon(
+                              Icons.format_align_right,
+                              color: Colors.white,
+                            )),
                       ],
                     ),
                   ),
                   SizedBox(
                     width: double.infinity,
                     height: 100,
-                    child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: imageList.length,itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.all(10),
-                        height: 100,
-                        width: 100,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              isimageindex=true;
-                              imgindex=index;
-                            });
-                          },
-                            child: Image.asset("assets/image/bgimg/${imageList[index]}",height: 50,width: 50,fit: BoxFit.cover)),
-                      );
-                    },),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: imageList.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.all(10),
+                          height: 100,
+                          width: 100,
+                          child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isimageindex = true;
+                                  imgindex = index;
+                                });
+                              },
+                              child: Image.asset(
+                                  "assets/image/bgimg/${imageList[index]}",
+                                  height: 50,
+                                  width: 50,
+                                  fit: BoxFit.cover)),
+                        );
+                      },
+                    ),
                   ),
                   SizedBox(
                     width: double.infinity,
                     height: 50,
-                    child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: fontsList.length,itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          setState(() {
-                            fontstyleindex=index;
-                          });
-                        },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Keval",style: TextStyle(fontSize: 20,fontFamily: fontsList[index],color: Colors.white),),
-                          ));
-                    },),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: fontsList.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                            onTap: () {
+                              setState(() {
+                                fontstyleindex = index;
+                              });
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Keval",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: fontsList[index],
+                                    color: Colors.white),
+                              ),
+                            ));
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -258,11 +339,15 @@ class _QuotesEditScreenState extends State<QuotesEditScreen> {
       ),
     );
   }
-  Future<dynamic> saveImage()async{
-    RenderRepaintBoundary boundary= globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-    ui.Image image=await boundary.toImage();
-    ByteData? bytedata= await image.toByteData(format: ui.ImageByteFormat.png);
 
-    return await ImageGallerySaver.saveImage(bytedata!.buffer.asUint8List());
+  Future<dynamic> saveImage() async {
+    RenderRepaintBoundary boundary =
+        globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    ui.Image image = await boundary.toImage();
+    ByteData? bytedata = await image.toByteData(format: ui.ImageByteFormat.png);
+    String imagepath =
+        "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}-${DateTime.now().hour}-${DateTime.now().minute}-${DateTime.now().second}";
+    return await File("/storage/emulated/0/Download/$imagepath.png")
+        .writeAsBytes(bytedata!.buffer.asUint8List());
   }
 }
